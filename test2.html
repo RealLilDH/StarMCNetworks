@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - StarMC</title>
+    <!-- Reference the external CSS file -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #f3f3f3;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 50px auto;
+            background: #333;
+            border-radius: 5px;
+        }
+        h1, p {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            color: #fff;
+            background: #4CAF50;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Complete Your Purchase</h1>
+    <p>Plan Selected: <strong id="selectedPlan"></strong></p>
+    <form action="confirmation.html" method="post">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="mcUsername">Minecraft Username</label>
+        <input type="text" id="mcUsername" name="mcUsername" required>
+
+        <button type="submit">Proceed to Payment</button>
+    </form>
+</div>
+
+<script>
+    // Get the selected plan from the URL and display it
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedPlan = urlParams.get('plan');
+    document.getElementById('selectedPlan').innerText = selectedPlan || "No Plan Selected";
+</script>
+
+</body>
+</html>

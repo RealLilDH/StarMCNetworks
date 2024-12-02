@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - StarMC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #f3f3f3;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 50px auto;
+            background: #333;
+            border-radius: 5px;
+        }
+        h1, p {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            color: #fff;
+            background: #4CAF50;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Payment Gateway</h1>
+    <p>Complete the payment to proceed with your account creation.</p>
+    <form action="test3.html" method="post">
+        <input type="hidden" name="mcUsername" value="" id="mcUsernameInput">
+        <button type="submit">Pay and Proceed</button>
+    </form>
+</div>
+
+<script>
+    // Retrieve the MC Username from previous form submission via URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const mcUsername = urlParams.get('mcUsername');
+    
+    // Set the hidden input value to pass the username to the next page
+    document.getElementById('mcUsernameInput').value = mcUsername || "Unknown";
+</script>
+
+</body>
+</html>

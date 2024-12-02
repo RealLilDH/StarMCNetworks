@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Completed - StarMC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #f3f3f3;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 50px auto;
+            background: #333;
+            border-radius: 5px;
+            text-align: center;
+        }
+        h1, p {
+            margin: 10px 0;
+        }
+        .details {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .details p {
+            margin: 10px 0;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .cta {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            color: #fff;
+            background: #4CAF50;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Account Creation Successful!</h1>
+    <p class="success">Congratulations! Your account has been created successfully.</p>
+
+    <div class="details">
+        <p><strong>Minecraft Username:</strong> <span id="mcUsername"></span></p>
+        <p><strong>Payment Method:</strong> <span id="paymentMethod"></span></p>
+        <p><strong>Account Status:</strong> Active</p>
+    </div>
+
+    <div class="cta">
+        <button onclick="redirectToDashboard()">Go to Dashboard</button>
+    </div>
+</div>
+
+<script>
+    // Retrieve data from the previous form submission via POST
+    const urlParams = new URLSearchParams(window.location.search);
+    const mcUsername = urlParams.get('mcUsername');
+    const paymentMethod = urlParams.get('paymentMethod');
+
+    // Display the user's information on the page
+    document.getElementById('mcUsername').innerText = mcUsername || "Unknown";
+    document.getElementById('paymentMethod').innerText = paymentMethod || "Unknown";
+
+    // Redirect function for the dashboard or main homepage
+    function redirectToDashboard() {
+        window.location.href = "redirect.html"; // Replace with actual dashboard URL
+    }
+</script>
+
+</body>
+</html>
